@@ -1,0 +1,65 @@
+package se.kodapan.gwt.google.maps.v3.client;
+
+import com.google.gwt.core.client.JavaScriptObject;
+
+/**
+ * Overlay for Google Maps v3 Marker.
+ */
+public class Marker extends ListenableMapObject {
+  /**
+   * Required by overlays
+   */
+  protected Marker() {
+  }
+
+  /**
+   * This suffices since all the MarkerOptions are duplicated with setters.
+   */
+  public static native Marker newInstance() /*-{
+    return new $wnd.google.maps.Marker();
+  }-*/;
+
+  /** */
+  public final native void setMap(Map map) /*-{
+    this.setMap(map);
+  }-*/;
+
+  /** */
+  public final native void setPosition(LatLng value) /*-{
+    this.setPosition(value);
+  }-*/;
+
+  /** */
+  public final native LatLng getPosition() /*-{
+    return this.getPosition();
+  }-*/;
+
+  /** */
+  public final native void setTitle(String value) /*-{
+    this.setTitle(value);
+  }-*/;
+
+  /** */
+  public final native void setIcon(String value) /*-{
+    this.setIcon(value);
+  }-*/;
+
+  /**
+   * You need to make the MarkerImage object yourself with JSNI; too many constructor options
+   */
+  public final native void setIcon(JavaScriptObject markerImage) /*-{
+    this.setIcon(markerImage);
+  }-*/;
+
+  /** */
+  public final native void setZIndex(int value) /*-{
+    this.setZIndex(value);
+  }-*/;
+
+  /** */
+  public final native void setClickable(boolean value) /*-{
+    this.setClickable(value);
+  }-*/;
+
+
+}
