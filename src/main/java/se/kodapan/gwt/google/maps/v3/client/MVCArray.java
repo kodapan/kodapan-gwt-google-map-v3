@@ -21,6 +21,13 @@ public class MVCArray<T extends JavaScriptObject> extends MVCObject {
     return new $wnd.google.maps.MVCArray();
   }-*/;
 
+  /**
+   * An attempt at more typed data, but this might just be silly.
+   */
+  public static native <T extends JavaScriptObject> MVCArray<T> newInstance(Class<T> type) /*-{
+    return new $wnd.google.maps.MVCArray();
+  }-*/;
+
 
   /**
    */
