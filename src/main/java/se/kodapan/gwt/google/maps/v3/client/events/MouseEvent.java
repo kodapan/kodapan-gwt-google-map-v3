@@ -23,12 +23,7 @@ public class MouseEvent extends JavaScriptObject {
 
   /** */
   public final native LatLng getLatLng() /*-{
-    return this.getLatLng();
+    return this.latLng;
   }-*/;
 
-
-  /** */
-  public final native void setLatLng(LatLng value) /*-{
-    this.setLatLng(value);
-  }-*/;
 }
