@@ -4,28 +4,21 @@ import com.google.gwt.dom.client.Element;
 
 
 /**
- * http://code.google.com/intl/sv-SE/apis/maps/documentation/javascript/reference.html#Map
+ * todo: for some reason I only manage to use one street view panorama from gwt
+ * todo: using plain javascript there is no problem.
+ * todo: the effect is that all but the first visible panorama just turns gray, as if not loaded.
  *
- * Events	            Arguments	  Description
- * bounds_changed	    None	      This event is fired when the viewport bounds have changed.
- * center_changed	    None	      This event is fired when the map center property changes.
- * click	            MouseEvent	This event is fired when the user clicks on the map (but not when they click on a marker or infowindow).
- * dblclick	          MouseEvent	This event is fired when the user double-clicks on the map. Note that the click event will also fire, right before this one.
- * drag	              None	      This event is repeatedly fired while the user drags the map.
- * dragend	          None	      This event is fired when the user stops dragging the map.
- * dragstart	        None	      This event is fired when the user starts dragging the map.
- * heading_changed	  None	      This event is fired when the map heading property changes.
- * idle	              None	      This event is fired when the map becomes idle after panning or zooming.
- * maptypeid_changed  None	      This event is fired when the mapTypeId property changes.
- * mousemove	        MouseEvent	This event is fired whenever the user's mouse moves over the map container.
- * mouseout	          MouseEvent	This event is fired when the user's mouse exits the map container.
- * mouseover	        MouseEvent	This event is fired when the user's mouse enters the map container.
- * projection_changed	None	      This event is fired when the projection has changed.
- * resize	            None	      Developers should trigger this event on the map when the div changes size: google.maps.event.trigger(map, 'resize') .
- * rightclick	        MouseEvent	This event is fired when the DOM contextmenu event is fired on the map container.
- * tilesloaded	      None	      This event is fired when the visible tiles have finished loading.
- * tilt_changed	      None	      This event is fired when the map tilt property changes.
- * zoom_changed	      None	      This event is fired when the map zoom property changes.
+ *
+ * http://code.google.com/intl/sv-SE/apis/maps/documentation/javascript/reference.html#StreetViewPanorama
+ * <p/>
+ * Events	          Arguments   Description
+ * closeclick	      Event	      This event is fired when the close button is clicked.
+ * links_changed	  None	      This event is fired when the panorama's links change. The links change asynchronously following a pano id change.
+ * pano_changed	    None	      This event is fired when the panorama's pano id changes. The pano may change as the user navigates through the panorama or the position is manually set. Note that not all position changes trigger a pano_changed.
+ * position_changed	None	      This event is fired when the panorama's position changes. The position changes as the user navigates through the panorama or the position is set manually.
+ * pov_changed	    None	      This event is fired when the panorama's point-of-view changes. The point of view changes as the pitch, zoom, or heading changes.
+ * resize	          None	      Developers should trigger this event on the panorama when its div changes size: google.maps.event.trigger(panorama, 'resize').
+ * visible_changed	None	      This event is fired when the panorama's visibility changes. The visibility is changed when the Pegman id dragged onto the map, the close button is clicked, or setVisible() is called.
  */
 public class StreetViewPanorama extends ListenableMapObject {
   /**
@@ -35,8 +28,13 @@ public class StreetViewPanorama extends ListenableMapObject {
   }
 
   /** */
-  public static native StreetViewPanorama newInstance(Element ele, MapOptions opts) /*-{
-    return new $wnd.google.maps.Map(ele, opts);
+  public static native StreetViewPanorama newInstance(Element ele) /*-{
+    return new $wnd.google.maps.StreetViewPanorama(ele);
+  }-*/;
+
+ /** */
+  public static native StreetViewPanorama newInstance(Element ele, StreetViewPanoramaOptions opts) /*-{
+    return new $wnd.google.maps.StreetViewPanorama(ele, opts);
   }-*/;
 
 
@@ -50,88 +48,83 @@ public class StreetViewPanorama extends ListenableMapObject {
   }-*/;
 
   /**
-   * If the map is not yet initialized (i.e. the mapType is still null),
-   * or center and zoom have not been set
-   * then the result is null or undefined.
+   * Returns the set of navigation links for the Street View panorama.
    *
-   * @return the lat/lng bounds of the current viewport
+   * @return
    */
-  public final native LatLngBounds getBounds() /*-{
-    return this.getBounds();
+  public final native MVCArray<StreetViewLink> getLinks() /*-{
+    return this.getLinks();
   }-*/;
-
-  /** */
-  public final native LatLng getCenter() /*-{
-    return this.getCenter();
-  }-*/;
-
-
-  // todo getDiv()
-
-  // todo getHeading()
-
-  // todo getMapTypeId()
 
   /**
-   * If the map is not yet initialized (i.e. the mapType is still null) then the result is null.
-   * Listen to projection_changed and check its value to ensure it is not null.
+   * Returns the current panorama ID for the Street View panorama.
+   * This id is stable within the browser's current session only
    *
-   * @return the current projection
+   * @return
    */
-  public final native Projection getProjection() /*-{
-    return this.getProjection();
+  public final native String getPano() /*-{
+    return this.getPano();
   }-*/;
-
-
-  // todo getStreetView()
-
-  // todo getTilt()
-
-  /** */
-  public final native int getZoom() /*-{
-    return this.getZoom();
-  }-*/;
-
-
-  // todo panBy(x:number, y:number)
 
   /**
-   * Changes the center of the map to the given LatLng.
-   * If the change is less than both the width and height of the map,
-   * the transition will be smoothly animated.
+   * Returns the current LatLng position for the Street View panorama.
    *
-   * @param value
+   * @return
    */
-  public final native void panTo(LatLng value) /*-{
-    this.panTo(value);
+  public final native LatLng getPosition() /*-{
+    return this.getPosition();
+  }-*/;
+
+  /**
+   * Returns the current point of view for the Street View panorama.
+   *
+   * @return
+   */
+  public final native StreetViewPov getPov() /*-{
+    return this.getPov();
+  }-*/;
+
+  /**
+   * Returns true if the panorama is visible. It does not specify whether Street View imagery is available at the specified position.
+   *
+   * @return
+   */
+  public final native boolean getVisible() /*-{
+    return this.getVisible();
   }-*/;
 
 
-  // todo panToBounds(latLngBounds:LatLngBounds)
+  // todo
+  // registerPanoProvider(provider:function(string):StreetViewPanoramaData))
 
+  /**
+   * Sets the current panorama ID for the Street View panorama.
+   */
+  public final native void setPano(String pano) /*-{
+    this.setPano(pano);
+  }-*/;
 
-  /** */
-  public final native void setCenter(LatLng value) /*-{
-    this.setCenter(value);
+  /**
+   * Sets the current LatLng position for the Street View panorama.
+   */
+  public final native void setPosition(LatLng position) /*-{
+    this.setPosition(position);
+  }-*/;
+
+  /**
+   * Sets the point of view for the Street View panorama.
+   */
+  public final native void setPov(StreetViewPov pov) /*-{
+    this.setPov(pov);
   }-*/;
 
 
-  // todo setHeading(heading:number)
-
-  // todo setMapTypeId(mapTypeId:MapTypeId)
-
-  // todo setOptions(options:MapOptions)
-
-  // todo setStreetView(panorama:StreetViewPanorama)
-
-  // todo setTilt(tilt:number)
-
-  /** */
-  public final native void setZoom(int value) /*-{
-    this.setZoom(value);
+  /**
+   * Sets to true to make the panorama visible. If set to false, the panorama will be hidden whether it is embedded in the map or in its own <div>.
+   */
+  public final native void setVisible(boolean flag) /*-{
+    this.setVisible(flag);
   }-*/;
-
-
 
 
 }

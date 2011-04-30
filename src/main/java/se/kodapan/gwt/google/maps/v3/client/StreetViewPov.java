@@ -4,14 +4,12 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 
 /**
- * http://code.google.com/intl/sv-SE/apis/maps/documentation/javascript/reference.html#StreetViewLink
+ * http://code.google.com/intl/sv-SE/apis/maps/documentation/javascript/reference.html#StreetViewPov
  * <p/>
- * Properties	    Type	  Description
- * description	  string	A localized string describing the link.
- * heading	      number	The heading of the link.
- * pano	          string	A unique identifier for the panorama. This id is stable within a session but unstable across sessions.
- * roadColor	    string	Color of the link
- * roadOpacity	  number	Opacity of the link
+ * Properties	Type	  Description
+ * heading	  number	The camera heading in degrees relative to true north. True north is 0°, east is 90°, south is 180°, west is 270°.
+ * pitch	    number	The camera pitch in degrees, relative to the street view vehicle. Ranges from 90° (directly upwards) to -90° (directly downwards).
+ * zoom	      number	The zoom level. Fully zoomed-out is level 0, zooming in increases the zoom level.
  */
 public class StreetViewPov extends JavaScriptObject {
   /**
@@ -25,5 +23,35 @@ public class StreetViewPov extends JavaScriptObject {
     return {};
   }-*/;
 
+  public static native StreetViewPov newInstance(int heading, int pitch, int zoom) /*-{
+    return {
+      heading: heading,
+      pitch: pitch,
+      zoom: zoom
+    };
+  }-*/;
+
+
+  public final native int getHeading() /*-{
+    return this.heading;
+  }-*/;
+  public final native void setHeading(int value) /*-{
+    this.heading = value;
+  }-*/;
+
+  public final native int getPitch() /*-{
+    return this.pitch;
+  }-*/;
+  public final native void setPitch(int value) /*-{
+    this.pitch = value;
+  }-*/;
+
+  public final native int getZoom() /*-{
+    return this.zoom;
+  }-*/;
+  public final native void setZoom(int value) /*-{
+    this.zoom = value;
+  }-*/;
 
 }
+
