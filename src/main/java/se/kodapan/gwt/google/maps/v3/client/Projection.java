@@ -3,8 +3,6 @@ package se.kodapan.gwt.google.maps.v3.client;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * Overlay for Google Maps v3 LatLng
- * Immutable.
  */
 public class Projection extends JavaScriptObject {
   /**

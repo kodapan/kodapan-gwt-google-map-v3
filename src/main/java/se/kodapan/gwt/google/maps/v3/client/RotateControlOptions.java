@@ -3,7 +3,7 @@ package se.kodapan.gwt.google.maps.v3.client;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * http://code.google.com/intl/sv-SE/apis/maps/documentation/javascript/reference.html#PanControlOptions
+ * http://code.google.com/intl/sv-SE/apis/maps/documentation/javascript/reference.html#RotateControlOptions
  *
  * position	ControlPosition	Position id. Used to specify the position of the control on the map. The default position is TOP_LEFT.
  *
