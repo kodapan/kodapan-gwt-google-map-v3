@@ -4,7 +4,28 @@ import com.google.gwt.dom.client.Element;
 
 
 /**
- * GWT Overlay for Google Maps v3 Map... not to be confused with a maps "Overlay".
+ * http://code.google.com/intl/sv-SE/apis/maps/documentation/javascript/reference.html#Map
+ *
+ * Events	            Arguments	  Description
+ * bounds_changed	    None	      This event is fired when the viewport bounds have changed.
+ * center_changed	    None	      This event is fired when the map center property changes.
+ * click	            MouseEvent	This event is fired when the user clicks on the map (but not when they click on a marker or infowindow).
+ * dblclick	          MouseEvent	This event is fired when the user double-clicks on the map. Note that the click event will also fire, right before this one.
+ * drag	              None	      This event is repeatedly fired while the user drags the map.
+ * dragend	          None	      This event is fired when the user stops dragging the map.
+ * dragstart	        None	      This event is fired when the user starts dragging the map.
+ * heading_changed	  None	      This event is fired when the map heading property changes.
+ * idle	              None	      This event is fired when the map becomes idle after panning or zooming.
+ * maptypeid_changed  None	      This event is fired when the mapTypeId property changes.
+ * mousemove	        MouseEvent	This event is fired whenever the user's mouse moves over the map container.
+ * mouseout	          MouseEvent	This event is fired when the user's mouse exits the map container.
+ * mouseover	        MouseEvent	This event is fired when the user's mouse enters the map container.
+ * projection_changed	None	      This event is fired when the projection has changed.
+ * resize	            None	      Developers should trigger this event on the map when the div changes size: google.maps.event.trigger(map, 'resize') .
+ * rightclick	        MouseEvent	This event is fired when the DOM contextmenu event is fired on the map container.
+ * tilesloaded	      None	      This event is fired when the visible tiles have finished loading.
+ * tilt_changed	      None	      This event is fired when the map tilt property changes.
+ * zoom_changed	      None	      This event is fired when the map zoom property changes.
  */
 public class Map extends ListenableMapObject {
   /**
@@ -109,5 +130,8 @@ public class Map extends ListenableMapObject {
   public final native void setZoom(int value) /*-{
     this.setZoom(value);
   }-*/;
+
+
+
 
 }

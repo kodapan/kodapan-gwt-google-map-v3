@@ -3,7 +3,32 @@ package se.kodapan.gwt.google.maps.v3.client;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * Overlay for Google Maps v3 Marker.
+ * http://code.google.com/intl/sv-SE/apis/maps/documentation/javascript/reference.html#Marker
+ * 
+ * Events	            Arguments	  Description
+ * animation_changed	None	      This event is fired when the marker's animation property changes.
+ * click	            MouseEvent	This event is fired when the marker icon was clicked.
+ * clickable_changed	None	      This event is fired when the marker's clickable property changes.
+ * cursor_changed	    None        This event is fired when the marker's cursor property changes.
+ * dblclick	          MouseEvent	This event is fired when the marker icon was double clicked.
+ * drag	              MouseEvent	This event is repeatedly fired while the user drags the marker.
+ * dragend	          MouseEvent	This event is fired when the user stops dragging the marker.
+ * draggable_changed	None        This event is fired when the marker's draggable property changes.
+ * dragstart	        MouseEvent	This event is fired when the user starts dragging the marker.
+ * flat_changed	      None        This event is fired when the marker's flat property changes.
+ * icon_changed	      None        This event is fired when the marker icon property changes.
+ * mousedown	        MouseEvent	This event is fired for a mousedown on the marker.
+ * mouseout	          MouseEvent	This event is fired when the mouse leaves the area of the marker icon.
+ * mouseover	        MouseEvent	This event is fired when the mouse enters the area of the marker icon.
+ * mouseup	          MouseEvent	This event is fired for a mouseup on the marker.
+ * position_changed	  None        This event is fired when the marker position property changes.
+ * rightclick	        MouseEvent	This event is fired for a rightclick on the marker.
+ * shadow_changed	    None        This event is fired when the marker's shadow property changes.
+ * shape_changed	    None        This event is fired when the marker's shape property changes.
+ * title_changed	    None        This event is fired when the marker title property changes.
+ * visible_changed	  None        This event is fired when the marker's visible property changes.
+ * zindex_changed	    None        This event is fired when the marker's zIndex property changes.
+ * 
  */
 public class Marker extends ListenableMapObject {
   /**

@@ -3,7 +3,17 @@ package se.kodapan.gwt.google.maps.v3.client;
 import com.google.gwt.core.client.JsArray;
 
 /**
- * Overlay for Google Maps v3 Polyline
+ * http://code.google.com/intl/sv-SE/apis/maps/documentation/javascript/reference.html#Polyline
+ * <p/>
+ * Events	    Arguments	  Description
+ * click	    MouseEvent	This event is fired when the DOM click event is fired on the Polyline.
+ * dblclick	  MouseEvent	This event is fired when the DOM dblclick event is fired on the Polyline.
+ * mousedown	MouseEvent	This event is fired when the DOM mousedown event is fired on the Polyline.
+ * mousemove	MouseEvent	This event is fired when the DOM mousemove event is fired on the Polyline.
+ * mouseout	  MouseEvent	This event is fired on Polyline mouseout.
+ * mouseover	MouseEvent	This event is fired on Polyline mouseover.
+ * mouseup	  MouseEvent	This event is fired when the DOM mouseup event is fired on the Polyline.
+ * rightclick	MouseEvent	This event is fired when the Polyline is right-clicked on.
  */
 public class Polyline extends ListenableMapObject {
   /**

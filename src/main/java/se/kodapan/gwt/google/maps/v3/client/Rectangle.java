@@ -5,7 +5,17 @@ package se.kodapan.gwt.google.maps.v3.client;
  */
 public class Rectangle extends ListenableMapObject {
   /**
-   * Required for overlays
+   * http://code.google.com/intl/sv-SE/apis/maps/documentation/javascript/reference.html#Rectangle
+   * <p/>
+   * Events	    Arguments	  Description
+   * click	    MouseEvent	This event is fired when the DOM click event is fired on the Rectangle.
+   * dblclick	  MouseEvent	This event is fired when the DOM dblclick event is fired on the Rectangle.
+   * mousedown	MouseEvent	This event is fired when the DOM mousedown event is fired on the Rectangle.
+   * mousemove	MouseEvent	This event is fired when the DOM mousemove event is fired on the Rectangle.
+   * mouseout	  MouseEvent	This event is fired on Rectangle mouseout.
+   * mouseover	MouseEvent	This event is fired on Rectangle mouseover.
+   * mouseup	  MouseEvent	This event is fired when the DOM mouseup event is fired on the Rectangle.
+   * rightclick	MouseEvent	This event is fired when the Rectangle is right-clicked on.
    */
   protected Rectangle() {
   }
