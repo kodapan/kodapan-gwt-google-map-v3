@@ -19,6 +19,27 @@ public class MapWidget extends Widget {
     this.map = Map.newInstance(this.getElement(), opts);
   }
 
+
+  /**
+   * Helper method to reach the pixel position on the widget element for a given latitude and longitude.
+   *
+   * @param latLng
+   * @return pixel x and y coordinate representing the latlng at current zoom level.
+   */
+  public  Point getPixelCoordinate(LatLng latLng) {
+    double scale = Math.pow(2, getMap().getZoom());
+    LatLng nw = LatLng.newInstance(
+        getMap().getBounds().getNorthEast().getLatitude(),
+        getMap().getBounds().getSouthWest().getLongitude());
+
+    Point worldCoordinateNW = getMap().getProjection().fromLatLngToPoint(nw);
+    Point worldCoordinate = getMap().getProjection().fromLatLngToPoint(latLng);
+    return Point.newInstance(
+        Math.floor((worldCoordinate.getX() - worldCoordinateNW.getX()) * scale) + getAbsoluteLeft(),
+        Math.floor((worldCoordinate.getY() - worldCoordinateNW.getY()) * scale) + getAbsoluteTop());
+  }
+
+
   /** */
   public Map getMap() {
     return this.map;
