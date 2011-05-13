@@ -17,11 +17,12 @@ public class PanControlOptions extends JavaScriptObject {
   protected PanControlOptions() {
   }
 
-  /**
-   * Creation
-   */
   public static native PanControlOptions newInstance() /*-{
     return {};
+  }-*/;
+
+  public static native PanControlOptions newInstance(ControlPosition controlPosition) /*-{
+    return { position : controlPosition };
   }-*/;
 
 

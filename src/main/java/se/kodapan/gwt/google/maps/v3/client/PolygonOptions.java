@@ -44,17 +44,19 @@ public class PolygonOptions extends JavaScriptObject {
     this.zIndex = value;
   }-*/;
 
-  /**
-   * Need to eventually make an MVCArray version
-   */
   public final native void setPath(JsArray<LatLng> value) /*-{
     this.paths = value;
   }-*/;
 
-  /**
-   * Need to eventually make an MVCArray version
-   */
+  public final native void setPath(MVCArray<LatLng> value) /*-{
+    this.paths = value;
+  }-*/;
+
   public final native void setPaths(JsArray<JsArray<LatLng>> value) /*-{
+    this.paths = value;
+  }-*/;
+
+  public final native void setPaths(MVCArray<JsArray<LatLng>> value) /*-{
     this.paths = value;
   }-*/;
 }

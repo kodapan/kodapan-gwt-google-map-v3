@@ -17,33 +17,33 @@ public class ZoomControlOptions extends JavaScriptObject {
   protected ZoomControlOptions() {
   }
 
-  /**
-   * Creation
-   */
   public static native ZoomControlOptions newInstance() /*-{
     return {};
   }-*/;
 
+  public static native ZoomControlOptions newInstance(JavaScriptObject position, JavaScriptObject style) /*-{
+    return { position : position, style : style };
+  }-*/;
 
-  public final native ControlPosition getPosition() /*-{
+
+  public final native JavaScriptObject getPosition() /*-{
      return this.position;
    }-*/;
 
 
-   public final native void setPosition(ControlPosition value) /*-{
+   public final native void setPosition(JavaScriptObject value) /*-{
      this.position = value;
    }-*/;
 
-  // todo
 
-//  public final native ZoomControlStyle getStyle() /*-{
-//     return this.position;
-//   }-*/;
-//
-//
-//   public final native void setStyle(ZoomControlStyle value) /*-{
-//     this.position = value;
-//   }-*/;
+  public final native JavaScriptObject getStyle() /*-{
+     return this.style;
+   }-*/;
+
+
+   public final native void setStyle(JavaScriptObject value) /*-{
+     this.position = value;
+   }-*/;
 
 
 
