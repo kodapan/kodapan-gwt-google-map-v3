@@ -132,7 +132,7 @@ public class MapOptions extends JavaScriptObject {
   /**
    * The initial Map mapTypeId. Required.
    */
-  public final native void setMapTypeId(JavaScriptObject value) /*-{
+  public final native void setMapTypeId(String value) /*-{
     this.mapTypeId = value;
   }-*/;
 

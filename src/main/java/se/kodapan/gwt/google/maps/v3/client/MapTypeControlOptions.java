@@ -27,11 +27,11 @@ public class MapTypeControlOptions extends JavaScriptObject {
     };
   }-*/;
 
-  public static MapTypeControlOptions newInstance(JavaScriptObject position, JavaScriptObject style, JavaScriptObject... mapTypeIds) {
+  public static MapTypeControlOptions newInstance(int position, int style, String... mapTypeIds) {
     return newInstance(mapTypeIds, position, style);
   }
 
-  public static native MapTypeControlOptions newInstance(JavaScriptObject[] mapTypeIds, JavaScriptObject position, JavaScriptObject style)/*-{
+  public static native MapTypeControlOptions newInstance(String[] mapTypeIds, int position, int style)/*-{
       return {
         mapTypeIds : mapTypeIds,
         position : position,
@@ -40,18 +40,18 @@ public class MapTypeControlOptions extends JavaScriptObject {
   }-*/;
 
   /** IDs of map types to show in the control. */
-  public native final void setMapTypeIds(JavaScriptObject[] mapTypeIds) /*-{
+  public native final void setMapTypeIds(String[] mapTypeIds) /*-{
     this.mapTypeIds = mapTypeIds;
   }-*/;
 
 
   /** Position id. Used to specify the position of the control on the map. The default position is TOP_RIGHT. */
-  public native final void setPosition(JavaScriptObject position) /*-{
+  public native final void setPosition(int position) /*-{
     this.position = position;
   }-*/;
 
     /** Style id. Used to select what style of map type control to display. */
-   public native final void setStyle(JavaScriptObject	style) /*-{
+   public native final void setStyle(int	style) /*-{
       this.style = style;
    }-*/;
 
