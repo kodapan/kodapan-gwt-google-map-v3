@@ -11,7 +11,7 @@
 
   <groupId>se.kodapan.gwt</groupId>
   <artifactId>google-maps-v3</artifactId>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1</version>
 
   <packaging>jar</packaging>
 
